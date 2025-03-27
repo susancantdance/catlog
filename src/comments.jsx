@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 // import env from "react-dotenv";
 import "./comments.css";
 
-function Comments({ postid, comments, expand, user }) {
+function Comments({ postid, postcomments, setComments, expand, user }) {
   // console.log("in comments ");
   // console.log(comments);
   const [clicked, setClicked] = useState(false);
@@ -12,7 +12,7 @@ function Comments({ postid, comments, expand, user }) {
     text: "",
     email: user,
   });
-  const [postcomments, setComments] = useState(comments);
+  // const [postcomments, setComments] = useState(comments);
 
   const navigate = useNavigate();
 

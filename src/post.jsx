@@ -50,6 +50,7 @@ function Post() {
               postid={postid}
               key={postid}
               comments={comments}
+              setComments={setComments}
               expand={true}
               user={localStorage.getItem("id")}
             />

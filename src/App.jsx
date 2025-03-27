@@ -49,6 +49,7 @@ function App() {
                   postid={post.id}
                   key={post.id}
                   comments={post.comments}
+                  expand={false}
                   user={localStorage.getItem("id")}
                 />
               </li>
