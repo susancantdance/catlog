@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+  margin-right: 20px;
+}
+
+.rightside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.logout {
+  cursor: pointer;
+}

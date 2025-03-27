@@ -1,0 +1,22 @@
+form {
+  width: 350px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+}
+label {
+  grid-column: 1/2;
+  text-align: right;
+}
+input {
+  margin-left: 5px;
+  grid-column: 2/3;
+}
+button {
+  align-self: center;
+  grid-column: 2 / 3;
+  margin-left: 5px;
+  width: 100px;
+}
