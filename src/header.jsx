@@ -32,7 +32,7 @@ function Header() {
     return (
       <div className="header">
         <span>
-          <a href="/signup">Signup</a> | <a href="/login">Login</a>
+          <Link to="/signup">Signup</Link> | <Link to="/login">Login</Link>
         </span>
       </div>
     );
