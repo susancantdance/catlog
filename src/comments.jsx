@@ -41,7 +41,8 @@ function Comments({ postid, comments, expand, user }) {
       );
       const data = await response.json();
       console.log(data);
-      window.location.reload();
+      // window.location.reload();
+      gotoPage();
     } catch (err) {
       console.error(JSON.stringify(err));
     }
