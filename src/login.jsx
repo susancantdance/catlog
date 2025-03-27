@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import env from "react-dotenv";
+// import env from "react-dotenv";
 import "./login.css";
 
 function Login() {
@@ -18,11 +18,14 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${env.URL}/login/password`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `https://cat-be-production.up.railway.app/login/password`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         const token = data.token;

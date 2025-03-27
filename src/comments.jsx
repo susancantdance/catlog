@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
-import env from "react-dotenv";
+// import env from "react-dotenv";
 import "./comments.css";
 
 function Comments({ postid, comments, expand, user }) {
@@ -28,14 +28,17 @@ function Comments({ postid, comments, expand, user }) {
 
     const token = localStorage.getItem("jwtToken");
     try {
-      const response = await fetch(`${env.URL}/posts/${postid}/comments`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `https://cat-be-production.up.railway.app/posts/${postid}/comments`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await response.json();
       console.log(data);
       window.location.reload();

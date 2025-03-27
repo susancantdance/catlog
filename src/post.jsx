@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Header } from "./header.jsx";
 import { Comments } from "./comments.jsx";
-import env from "react-dotenv";
+// import env from "react-dotenv";
 
 import "./post.css";
 
@@ -13,7 +13,7 @@ function Post() {
   const [comments, setComments] = useState({});
 
   useEffect(() => {
-    fetch(`${env.URL}/posts/${postid}`, {
+    fetch(`https://cat-be-production.up.railway.app/posts/${postid}`, {
       method: "GET",
     })
       .then((response) => {
