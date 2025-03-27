@@ -48,7 +48,7 @@ function App() {
                 <Comments
                   postid={post.id}
                   key={post.id}
-                  comments={post.comments}
+                  postcomments={post.comments}
                   expand={false}
                   user={localStorage.getItem("id")}
                 />

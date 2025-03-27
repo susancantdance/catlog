@@ -49,7 +49,7 @@ function Post() {
             <Comments
               postid={postid}
               key={postid}
-              comments={comments}
+              postcomments={comments}
               setComments={setComments}
               expand={true}
               user={localStorage.getItem("id")}
