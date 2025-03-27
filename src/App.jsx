@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Comments } from "./comments.jsx";
 import { Header } from "./header.jsx";
 import { BlogContext } from "./context.jsx";
-import env from "react-dotenv";
+// import env from "react-dotenv";
 
 import "./App.css";
 
@@ -12,7 +12,7 @@ function App() {
   // const [user, setUser] = useState({ id: "", username: "" });
   console.log("in the app");
   useEffect(() => {
-    fetch(env.URL + "/posts", {
+    fetch(import.meta.URL + "/posts", {
       method: "GET",
     })
       .then((response) => {
