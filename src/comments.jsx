@@ -29,7 +29,7 @@ function Comments({ postid, comments, expand, user }) {
     const token = localStorage.getItem("jwtToken");
     try {
       const response = await fetch(
-        `https://cat-be-production.up.railway.app/posts/${postid}/comments`,
+        `${import.meta.env.VITE_DB_URL}/posts/${postid}/comments`,
         {
           method: "POST",
           headers: {

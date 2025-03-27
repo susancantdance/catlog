@@ -29,34 +29,34 @@ function App() {
 
   return (
     <div>
-      <BlogContext.Provider value={{ posts }}>
-        <Header
-        // token={localStorage.getItem("jwtToken")}
-        // user={user}
-        // setUser={setUser}
-        />
-        <h1>Clog (Cat Log)</h1>
-        <div className="postcontainer">
-          <ul className="posts">
-            {publishedPosts.map((post) => {
-              return (
-                <li key={post.id}>
-                  <b>{post.title}</b>
-                  <br></br>
-                  {post.body}
-                  <br></br>
-                  <Comments
-                    postid={post.id}
-                    key={post.id}
-                    comments={post.comments}
-                    user={localStorage.getItem("id")}
-                  />
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </BlogContext.Provider>
+      {/* <BlogContext.Provider value={{ posts }}> */}
+      <Header
+      // token={localStorage.getItem("jwtToken")}
+      // user={user}
+      // setUser={setUser}
+      />
+      <h1>Clog (Cat Log)</h1>
+      <div className="postcontainer">
+        <ul className="posts">
+          {publishedPosts.map((post) => {
+            return (
+              <li key={post.id}>
+                <b>{post.title}</b>
+                <br></br>
+                {post.body}
+                <br></br>
+                <Comments
+                  postid={post.id}
+                  key={post.id}
+                  comments={post.comments}
+                  user={localStorage.getItem("id")}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      {/* </BlogContext.Provider> */}
     </div>
   );
 }
