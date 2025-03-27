@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   const publishedPosts = posts.filter((post) => post.ispublished == true);
-
+  console.log(publishedPosts);
   return (
     <div>
       {/* <BlogContext.Provider value={{ posts }}> */}
