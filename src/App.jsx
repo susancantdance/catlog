@@ -12,7 +12,7 @@ function App() {
   // const [user, setUser] = useState({ id: "", username: "" });
   console.log("in the app");
   useEffect(() => {
-    fetch(import.meta.URL + "/posts", {
+    fetch("https://cat-be-production.up.railway.app/posts", {
       method: "GET",
     })
       .then((response) => {
