@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Header } from "./header.jsx";
 import { Comments } from "./comments.jsx";
+import env from "react-dotenv";
 
 import "./post.css";
 
@@ -12,7 +13,7 @@ function Post() {
   const [comments, setComments] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:3000/posts/${postid}`, {
+    fetch(`${env.URL}/posts/${postid}`, {
       method: "GET",
     })
       .then((response) => {

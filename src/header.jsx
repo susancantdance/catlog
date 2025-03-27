@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import env from "react-dotenv";
 import "./header.css";
 
 function Header() {
@@ -6,7 +7,7 @@ function Header() {
   const navigate = useNavigate();
   const logout = async () => {
     try {
-      const response = await fetch("http://localhost:3000/logout", {
+      const response = await fetch(`${env.URL}/logout`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: "",
