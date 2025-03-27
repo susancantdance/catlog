@@ -12,6 +12,8 @@ function Comments({ postid, comments, expand, user }) {
     text: "",
     email: user,
   });
+  const [postcomments, setComments] = useState(comments);
+
   const navigate = useNavigate();
 
   const gotoPage = () => {
@@ -41,8 +43,7 @@ function Comments({ postid, comments, expand, user }) {
       );
       const data = await response.json();
       console.log(data);
-      // window.location.reload();
-      gotoPage();
+      setComments({ ...postcomments, text: data });
     } catch (err) {
       console.error(JSON.stringify(err));
     }
@@ -51,12 +52,12 @@ function Comments({ postid, comments, expand, user }) {
   // console.log("expand");
   // console.log(expand);
 
-  if ((clicked || expand) && comments.length > 0) {
+  if ((clicked || expand) && postcomments.length > 0) {
     return (
       <div>
-        <p>Comments ({comments.length})</p>
+        <p>Comments ({postcomments.length})</p>
         <ul>
-          {comments.map((cmt) => {
+          {postcomments.map((cmt) => {
             return (
               <li key={cmt.id}>
                 {cmt.text}
@@ -92,10 +93,10 @@ function Comments({ postid, comments, expand, user }) {
         </div>
       </div>
     );
-  } else if ((clicked || expand) && comments.length == 0) {
+  } else if ((clicked || expand) && postcomments.length == 0) {
     return (
       <div>
-        <p>Comments ({comments.length})</p>
+        <p>Comments ({postcomments.length})</p>
         {expand ? (
           <form className="formfields" onSubmit={postComment}>
             <textarea
@@ -132,7 +133,7 @@ function Comments({ postid, comments, expand, user }) {
     return (
       <div>
         <p className="comments-title" onClick={() => setClicked(true)}>
-          Comments ({comments.length})
+          Comments ({postcomments.length})
         </p>
       </div>
     );

@@ -12,6 +12,8 @@ function Post() {
   const [author, setAuthor] = useState({});
   const [comments, setComments] = useState({});
 
+  console.log(`postid ${postid}`);
+
   useEffect(() => {
     fetch(`https://cat-be-production.up.railway.app/posts/${postid}`, {
       method: "GET",
