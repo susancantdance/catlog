@@ -10,7 +10,7 @@ import "./App.css";
 function App() {
   const [posts, setPosts] = useState([]);
   // const [user, setUser] = useState({ id: "", username: "" });
-
+  console.log("in the app");
   useEffect(() => {
     fetch(env.URL + "/posts", {
       method: "GET",
