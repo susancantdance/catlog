@@ -17,7 +17,8 @@ function Post() {
   console.log(`postid ${postid}`);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_DB_URL}/posts/${postid}`, {
+    // fetch(`${import.meta.env.VITE_DB_URL}/posts/${postid}`, {
+    fetch(`http://localhost:3000/posts/${postid}`, {
       method: "GET",
     })
       .then((response) => {
