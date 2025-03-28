@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Comments } from "./comments.jsx";
 import { Header } from "./header.jsx";
 import { BlogContext } from "./context.jsx";
+import { Link } from "react-router-dom";
 // import env from "react-dotenv";
 
 import "./App.css";
@@ -10,9 +11,12 @@ import "./App.css";
 function App() {
   const [posts, setPosts] = useState([]);
   // const [user, setUser] = useState({ id: "", username: "" });
+
   console.log("in the app");
+
   useEffect(() => {
     fetch(`${import.meta.env.VITE_DB_URL}/posts`, {
+      // fetch(`http://localhost:3000/posts`, {
       method: "GET",
     })
       .then((response) => {
@@ -26,6 +30,7 @@ function App() {
   }, []);
 
   const publishedPosts = posts.filter((post) => post.ispublished == true);
+  console.log("publishedPosts");
   console.log(publishedPosts);
   return (
     <div>
@@ -45,13 +50,17 @@ function App() {
                 <br></br>
                 {post.body}
                 <br></br>
-                <Comments
+                {/* {post.comments.id} */}
+                <Link to={`post/${post.id}`} state={post}>
+                  Comments {`(${post.comments.length})`}
+                </Link>
+                {/* <Comments
                   postid={post.id}
                   key={post.id}
                   postcomments={post.comments}
                   expand={false}
                   user={localStorage.getItem("id")}
-                />
+                /> */}
               </li>
             );
           })}

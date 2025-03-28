@@ -19,14 +19,11 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        `https://cat-be-production.up.railway.app/signup`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(`${import.meta.env.VITE_DB_URL}/signup`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
       const data = await response.json();
       console.log(data);
 

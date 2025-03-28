@@ -1,58 +1,92 @@
 import { useState } from "react";
 
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import env from "react-dotenv";
 import "./comments.css";
 
-function Comments({ postid, postcomments, setComments, expand, user }) {
-  // console.log("in comments ");
-  // console.log(comments);
-  const [clicked, setClicked] = useState(false);
+function Comments({
+  postid,
+  postcomments,
+  setComments,
+  expand,
+  setExpand,
+  user,
+}) {
+  console.log("in comments ");
+  console.log(postcomments);
+  // const [clicked, setClicked] = useState(false);
   const [formData, setFormData] = useState({
     text: "",
     email: user,
   });
   // const [postcomments, setComments] = useState(comments);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const gotoPage = () => {
-    console.log("gotoPage");
-    navigate("/post/" + postid);
-  };
+  // const gotoPage = () => {
+  //   console.log("gotoPage");
+  //   navigate("/post/" + postid);
+  // };
 
   const handleChange = (e) => {
     setFormData({ ...formData, text: e.target.value });
   };
+  const token = localStorage.getItem("jwtToken");
 
   const postComment = async (e) => {
     e.preventDefault();
 
-    const token = localStorage.getItem("jwtToken");
+    console.log(token);
     try {
       const response = await fetch(
         `${import.meta.env.VITE_DB_URL}/posts/${postid}/comments`,
+        // `http://localhost:3000/posts/${postid}/comments`,
         {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
+          // mode: "no-cors",
           body: JSON.stringify(formData),
         }
       );
       const data = await response.json();
       console.log(data);
-      setComments({ ...postcomments, text: data });
+      getComments();
     } catch (err) {
       console.error(JSON.stringify(err));
     }
   };
 
-  // console.log("expand");
-  // console.log(expand);
+  const getComments = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_DB_URL}/posts/${postid}/comments`,
+        // `http://localhost:3000/posts/${postid}/comments`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          // mode: "no-cors",
+          // body: JSON.stringify(formData),
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      setExpand(false);
+      setComments(data);
+    } catch (err) {
+      console.error(JSON.stringify(err));
+    }
+  };
 
-  if ((clicked || expand) && postcomments.length > 0) {
+  console.log("postcomments length");
+  console.log(postcomments);
+
+  if (postcomments.length > 0) {
     return (
       <div>
         <p>Comments ({postcomments.length})</p>
@@ -82,10 +116,10 @@ function Comments({ postid, postcomments, setComments, expand, user }) {
             </form>
           ) : (
             <>
-              <p className="close" onClick={() => setClicked(false)}>
+              {/* <p className="close" onClick={() => setClicked(false)}>
                 Close
-              </p>
-              <p className="add" onClick={gotoPage}>
+              </p> */}
+              <p className="add" onClick={() => setExpand(true)}>
                 Add a comment!
               </p>
             </>
@@ -93,7 +127,7 @@ function Comments({ postid, postcomments, setComments, expand, user }) {
         </div>
       </div>
     );
-  } else if ((clicked || expand) && postcomments.length == 0) {
+  } else if (postcomments.length == 0) {
     return (
       <div>
         <p>Comments ({postcomments.length})</p>
@@ -118,23 +152,15 @@ function Comments({ postid, postcomments, setComments, expand, user }) {
             ""
           ) : (
             <>
-              <p className="close" onClick={() => setClicked(false)}>
+              {/* <p className="close" onClick={() => setClicked(false)}>
                 Close
-              </p>
-              <p className="add" onClick={gotoPage}>
+              </p> */}
+              <p className="add" onClick={() => setExpand(true)}>
                 Add a comment!
               </p>
             </>
           )}
         </div>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <p className="comments-title" onClick={() => setClicked(true)}>
-          Comments ({postcomments.length})
-        </p>
       </div>
     );
   }

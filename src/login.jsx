@@ -19,7 +19,8 @@ function Login() {
     e.preventDefault();
     try {
       const response = await fetch(
-        `https://cat-be-production.up.railway.app/login/password`,
+        // `http://localhost:3000/login/password`, {
+        `${import.meta.env.VITE_DB_URL}/login/password`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -34,6 +35,8 @@ function Login() {
         localStorage.setItem("id", user);
         // console.log(data);
         navigate("/");
+      } else {
+        console.log(response);
       }
     } catch (error) {
       console.error(error);

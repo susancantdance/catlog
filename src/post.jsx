@@ -7,28 +7,33 @@ import { Comments } from "./comments.jsx";
 import "./post.css";
 
 function Post() {
+  console.log("this is POST");
   const { postid } = useParams();
   const [post, setPost] = useState({});
   const [author, setAuthor] = useState({});
-  const [comments, setComments] = useState({});
+  const [comments, setComments] = useState([]);
+  const [expand, setExpand] = useState(false);
 
   console.log(`postid ${postid}`);
 
   useEffect(() => {
-    fetch(`https://cat-be-production.up.railway.app/posts/${postid}`, {
+    fetch(`${import.meta.env.VITE_DB_URL}/posts/${postid}`, {
       method: "GET",
     })
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        // console.log("singlepost");
-        // console.log(data);
+        console.log("singlepost");
+        console.log(data);
         setPost(data);
         setAuthor(data.author);
         setComments(data.comments);
       });
   }, [postid]);
+
+  console.log("COMMENTS");
+  console.log(comments);
 
   return (
     <div>
@@ -48,11 +53,12 @@ function Post() {
             <br></br>
             <Comments
               postid={postid}
-              key={postid}
               postcomments={comments}
               setComments={setComments}
-              expand={true}
+              expand={expand}
+              setExpand={setExpand}
               user={localStorage.getItem("id")}
+              key={postid}
             />
           </div>
         </div>
