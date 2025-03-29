@@ -39,8 +39,8 @@ function Comments({
     console.log(token);
     try {
       const response = await fetch(
-        // `${import.meta.env.VITE_DB_URL}/posts/${postid}/comments`,
-        `http://localhost:3000/posts/${postid}/comments`,
+        `${import.meta.env.VITE_DB_URL}/posts/${postid}/comments`,
+        // `http://localhost:3000/posts/${postid}/comments`,
         {
           method: "POST",
           headers: {
@@ -62,8 +62,8 @@ function Comments({
   const getComments = async () => {
     try {
       const response = await fetch(
-        // `${import.meta.env.VITE_DB_URL}/posts/${postid}/comments`,
-        `http://localhost:3000/posts/${postid}/comments`,
+        `${import.meta.env.VITE_DB_URL}/posts/${postid}/comments`,
+        // `http://localhost:3000/posts/${postid}/comments`,
         {
           method: "GET",
           headers: {
