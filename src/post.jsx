@@ -50,7 +50,7 @@ function Post() {
             <b>{post.title}</b>
             <br></br>
             <p className="author">Author: {author.email}</p>
-            {post.body}
+            <p className="bodytext">{post.body}</p>
             <br></br>
             <Comments
               postid={postid}

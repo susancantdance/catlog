@@ -7,6 +7,10 @@
   width: 100%;
 }
 
+.bodytext {
+  margin-right: 20px;
+}
+
 .postbody {
   padding: 0px;
   list-style: none;
