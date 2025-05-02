@@ -13,7 +13,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   background-image: url("./assets/tim.png");
-  background-attachment: absolute;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 10%;
   background-position: 5% 5%;
