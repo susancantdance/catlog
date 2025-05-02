@@ -1,0 +1,41 @@
+li {
+  padding: 20px;
+  list-style: none;
+  border-style: solid;
+  border-width: 1px;
+  margin: 10px;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  background-image: url("tim.png");
+  background-attachment: absolute;
+  background-repeat: no-repeat;
+  background-size: 10%;
+  background-position: 5% 5%;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+ul.posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 75%;
+}
+
+.postcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
