@@ -12,6 +12,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+    background-image: url("tim.png");
+  background-attachment: absolute;
+  background-repeat: no-repeat;
+  background-size: 10%;
+  background-position: 5% 5%;
 }
 
 h1 {
