@@ -1,0 +1,41 @@
+.post {
+  padding: 20px;
+  /* list-style: none; */
+  /* border-style: solid;
+  border-width: 1px; */
+  /* margin: 10px; */
+  width: 100%;
+}
+
+.bodytext {
+  margin-right: 50px;
+}
+
+.postbody {
+  padding: 0px;
+  list-style: none;
+  /* background-color: purple; */
+  /* border-width: 1px;
+  margin: 10px; */
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* border-style: solid; */
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+/* ul.posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */

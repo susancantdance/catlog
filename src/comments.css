@@ -1,0 +1,65 @@
+.comments-title {
+  text-decoration: bold;
+  color: blue;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  /* background-color: blue; */
+  padding: 0px;
+}
+
+ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment {
+  list-style: none;
+  list-style-position: outside;
+  border-style: solid;
+  border-width: 1px;
+  max-width: 300px;
+  margin-left: -50px;
+  margin-right: 50px;
+}
+
+.close {
+  text-decoration: bold;
+  color: red;
+  cursor: pointer;
+}
+
+.comments-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add {
+  cursor: pointer;
+  color: green;
+}
+
+.formfields {
+  border-style: none;
+  background-color: lightblue;
+  padding-top: 30px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.textarea {
+  width: 250px;
+  height: 50px;
+  margin: 10px;
+}
+
+.comment-button {
+  width: 200px;
+}
