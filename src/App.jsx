@@ -15,8 +15,8 @@ function App() {
   console.log("in the app");
 
   useEffect(() => {
-    // fetch(`${import.meta.env.VITE_DB_URL}/posts`, {
-    fetch(`http://localhost:3000/posts`, {
+    fetch(`${import.meta.env.VITE_DB_URL}/posts`, {
+      // fetch(`http://localhost:3000/posts`, {
       method: "GET",
     })
       .then((response) => {
